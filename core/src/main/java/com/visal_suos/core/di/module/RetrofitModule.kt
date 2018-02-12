@@ -1,4 +1,4 @@
-package com.visal_suos.rxjava2_dagger2_mvp_room.di.module.base
+package com.visal_suos.core.di.module
 
 import dagger.Module
 import dagger.Provides
