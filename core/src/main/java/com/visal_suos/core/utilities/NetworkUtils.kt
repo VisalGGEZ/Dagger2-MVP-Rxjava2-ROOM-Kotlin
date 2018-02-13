@@ -16,6 +16,7 @@
 
 package com.visal_suos.rxjava2_dagger2_mvp_room.utilities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 
@@ -27,6 +28,7 @@ import android.net.ConnectivityManager
 class NetworkUtils(private val context: Context) {
 
     val isNetAvailable: Boolean
+        @SuppressLint("MissingPermission")
         get() {
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val activeNetworkInfo = connectivityManager.activeNetworkInfo

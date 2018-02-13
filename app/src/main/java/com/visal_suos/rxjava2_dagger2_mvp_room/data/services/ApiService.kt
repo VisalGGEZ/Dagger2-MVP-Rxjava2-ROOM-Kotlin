@@ -2,6 +2,7 @@ package com.visal_suos.rxjava2_dagger2_mvp_room.data.api
 
 import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.model.DataTestModel
 import io.reactivex.Maybe
+import io.reactivex.Single
 import retrofit2.http.GET
 
 /**
@@ -10,4 +11,7 @@ import retrofit2.http.GET
 interface ApiService {
     @GET("shortheroes.json")
     fun getDataTest(): Maybe<List<DataTestModel>>
+
+    @GET("shortheroes.json")
+    fun getImage(): Single<String>
 }

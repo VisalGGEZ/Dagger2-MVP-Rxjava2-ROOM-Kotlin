@@ -1,5 +1,7 @@
 package com.visal_suos.core.di.module
 
+import android.content.Context
+import com.visal_suos.rxjava2_dagger2_mvp_room.utilities.NetworkUtils
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -14,6 +16,20 @@ import javax.inject.Singleton
  */
 @Module
 class RetrofitModule {
+
+    @Singleton
+    @Provides
+    fun provideGsonConverterFactory(): GsonConverterFactory {
+        return GsonConverterFactory.create()
+    }
+
+    @Singleton
+    @Provides
+    fun provideRxJavaCallAdapterFactory(): RxJava2CallAdapterFactory {
+        return RxJava2CallAdapterFactory.create()
+    }
+
+
 
     @Singleton
     @Provides

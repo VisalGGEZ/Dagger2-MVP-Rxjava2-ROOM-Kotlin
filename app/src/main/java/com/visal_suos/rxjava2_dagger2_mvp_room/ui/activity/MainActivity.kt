@@ -5,14 +5,14 @@ import com.visal_suos.rxjava2_dagger2_mvp_room.R
 import com.visal_suos.rxjava2_dagger2_mvp_room.di.component.activity.DaggerMainActivityComponent
 import com.visal_suos.rxjava2_dagger2_mvp_room.di.module.activity.MainActivityModule
 import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.model.DataTestModel
-import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.presenter.implement.MainPresenter
+import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.presenter.implement.MainActivityPresenter
 import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.view.MainView
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(), MainView {
 
     @Inject
-    lateinit var mainPresenter: MainPresenter
+    lateinit var mainPresenter: MainActivityPresenter
 
     override fun initDagger() {
         DaggerMainActivityComponent

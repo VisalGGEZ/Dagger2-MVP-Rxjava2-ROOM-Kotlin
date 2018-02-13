@@ -1,8 +1,10 @@
 package com.visal_suos.rxjava2_dagger2_mvp_room.di.module.activity
 
 import com.visal_suos.rxjava2_dagger2_mvp_room.data.api.ApiService
-import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.presenter.implement.MainPresenter
-import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.presenter.implement.MainPresenterImpl
+import com.visal_suos.rxjava2_dagger2_mvp_room.data.room.dao.TestDao
+import com.visal_suos.rxjava2_dagger2_mvp_room.data.room.db.MyDatabase
+import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.presenter.implement.MainActivityPresenter
+import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.presenter.implement.MainActivityPresenterImpl
 import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.view.MainView
 import com.visal_suos.rxjava2_dagger2_mvp_room.ui.activity.MainActivity
 
@@ -10,8 +12,6 @@ import com.visal_suos.rxjava2_dagger2_mvp_room.di.scope.ActivityScope
 import com.visal_suos.rxjava2_dagger2_mvp_room.utilities.NetworkUtils
 import dagger.Module
 import dagger.Provides
-import retrofit2.Retrofit
-import javax.inject.Singleton
 
 /**
  * Created by v.suos on 2/8/2018.
@@ -27,13 +27,14 @@ class MainActivityModule(val activity: MainActivity) {
 
     @ActivityScope
     @Provides
-    fun provideMainPresenter(mainView: MainView, networkUtils: NetworkUtils, apiService: ApiService): MainPresenter {
-        return MainPresenterImpl(mainView, networkUtils, apiService)
+    fun provideMainPresenter(mainView: MainView, networkUtils: NetworkUtils, apiService: ApiService): MainActivityPresenter {
+        return MainActivityPresenterImpl(mainView, networkUtils, apiService)
     }
 
-    @Singleton
+    @ActivityScope
     @Provides
-    fun provideApiService(retrofit : Retrofit) : ApiService{
-        return retrofit.create(ApiService::class.java)
+    fun provideTestDao(myDatabase: MyDatabase) : TestDao{
+        return myDatabase.testDao()
     }
+
 }

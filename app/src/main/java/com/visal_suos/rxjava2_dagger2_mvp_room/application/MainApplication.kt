@@ -1,24 +1,32 @@
 package com.visal_suos.rxjava2_dagger2_mvp_room.application
 
-import com.visal_suos.core.di.CoreApp
-import com.visal_suos.core.di.component.AppComponent
-import com.visal_suos.core.di.component.DaggerAppComponent
-import com.visal_suos.core.di.module.AppModule
+import android.app.Application
+import com.visal_suos.rxjava2_dagger2_mvp_room.di.component.activity.AppComponent
+import com.visal_suos.rxjava2_dagger2_mvp_room.di.component.activity.DaggerAppComponent
+import com.visal_suos.rxjava2_dagger2_mvp_room.di.module.activity.AppModule
 
 
 /**
  * Created by v.suos on 2/12/2018.
  */
-class MainApplication : CoreApp() {
+class MainApplication : Application() {
 
-    override fun getBaseURL() = "https://stackoverflow.com/questions/43756498/dagger-2-component-not-generated"
+    private val baseURL = "https://raw.githubusercontent.com/VisalGGEZ/udemy-forum/master/"
 
     companion object {
         @JvmStatic
         lateinit var appComponent: AppComponent
     }
 
-    override fun initDagger() {
-        appComponent = DaggerAppComponent.builder().appModule(AppModule(this, getBaseURL())).build()
+    override fun onCreate() {
+        super.onCreate()
+        initDagger()
+    }
+
+    fun initDagger() {
+        appComponent = DaggerAppComponent
+                .builder()
+                .appModule(AppModule(this, baseURL))
+                .build()
     }
 }

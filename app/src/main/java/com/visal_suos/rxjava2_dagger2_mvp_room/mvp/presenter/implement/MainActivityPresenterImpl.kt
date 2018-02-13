@@ -7,7 +7,7 @@ import com.visal_suos.rxjava2_dagger2_mvp_room.utilities.NetworkUtils
 /**
  * Created by v.suos on 2/8/2018.
  */
-class MainPresenterImpl (private val mainView: MainView, private val networkUtils: NetworkUtils, private val apiService: ApiService) : MainPresenter{
+class MainActivityPresenterImpl(private val mainView: MainView, private val networkUtils: NetworkUtils, private val apiService: ApiService) : MainActivityPresenter {
 
     override fun getDataTest() {
         if (networkUtils.isNetAvailable){
