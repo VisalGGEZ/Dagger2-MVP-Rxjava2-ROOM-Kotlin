@@ -7,4 +7,5 @@ import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.model.DataTestModel
  */
 interface MainView {
     fun onDataTestLoaded(dataTest: List<DataTestModel>);
+    fun onDataError(error: String)
 }

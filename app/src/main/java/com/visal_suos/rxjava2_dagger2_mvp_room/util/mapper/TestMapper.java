@@ -10,7 +10,7 @@ import java.util.List;
  * Created by v.suos on 2/7/2018.
  */
 
-public class HeroMapper {
+public class TestMapper {
 
 
     public static List<DataTestEntity> map(List<DataTestModel> shortInfoHeroes) {

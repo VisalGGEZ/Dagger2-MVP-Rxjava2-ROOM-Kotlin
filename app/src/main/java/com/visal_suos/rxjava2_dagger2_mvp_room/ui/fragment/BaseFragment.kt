@@ -1,12 +1,11 @@
 package com.visal_suos.rxjava2_dagger2_mvp_room.ui.fragment
 
-import android.app.Fragment
+import android.support.v4.app.Fragment
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.visal_suos.rxjava2_dagger2_mvp_room.R
 import com.visal_suos.rxjava2_dagger2_mvp_room.application.MainApplication
 
 /**
@@ -23,10 +22,8 @@ abstract class BaseFragment : Fragment() {
 
     abstract fun initDagger();
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return super.onCreateView(inflater, container, savedInstanceState)
-
-        return inflater!!.inflate(setView(), container, false)
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater?.inflate(setView(), container, false)
     }
 
     abstract fun setView(): Int

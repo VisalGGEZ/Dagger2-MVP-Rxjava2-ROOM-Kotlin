@@ -12,6 +12,6 @@ interface ApiService {
     @GET("shortheroes.json")
     fun getDataTest(): Maybe<List<DataTestModel>>
 
-    @GET("shortheroes.json")
+    @GET("json-test.json")
     fun getImage(): Single<String>
 }
