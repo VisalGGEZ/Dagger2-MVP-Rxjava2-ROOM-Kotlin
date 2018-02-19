@@ -3,12 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Dagger2-MVP-Rxjava2-ROOM-Kotlin.iml" filepath="$PROJECT_DIR$/Dagger2-MVP-Rxjava2-ROOM-Kotlin.iml" />
-      <module fileurl="file://D:\1Kotlin\Dagger2-MVP-Rxjava2-ROOM-Kotlin\Dagger2-MVP-Rxjava2-ROOM-Kotlin.iml" filepath="D:\1Kotlin\Dagger2-MVP-Rxjava2-ROOM-Kotlin\Dagger2-MVP-Rxjava2-ROOM-Kotlin.iml" />
       <module fileurl="file://C:\Users\v.suos\Documents\Dagger2-MVP-Rxjava2-ROOM-Kotlin\Rxjava2Dagger2MVPROOM.iml" filepath="C:\Users\v.suos\Documents\Dagger2-MVP-Rxjava2-ROOM-Kotlin\Rxjava2Dagger2MVPROOM.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\1Kotlin\Dagger2-MVP-Rxjava2-ROOM-Kotlin\app\app.iml" filepath="D:\1Kotlin\Dagger2-MVP-Rxjava2-ROOM-Kotlin\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
-      <module fileurl="file://D:\1Kotlin\Dagger2-MVP-Rxjava2-ROOM-Kotlin\core\core.iml" filepath="D:\1Kotlin\Dagger2-MVP-Rxjava2-ROOM-Kotlin\core\core.iml" />
     </modules>
   </component>
 </project>

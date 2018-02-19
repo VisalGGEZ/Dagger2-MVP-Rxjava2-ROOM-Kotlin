@@ -5,17 +5,17 @@ import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
 import com.visal_suos.rxjava2_dagger2_mvp_room.data.room.entity.DataTestEntity
-import io.reactivex.Maybe
+import io.reactivex.Flowable
 
 /**
  * Created by v.suos on 2/13/2018.
  */
 @Dao
 interface TestDao {
-    @Query("SELECT * FROM hero")
-    abstract fun getAll(): Maybe<List<DataTestEntity>>
+    @Query("SELECT * FROM test")
+    abstract fun getAll(): Flowable<List<DataTestEntity>>
 
-    @Query("SELECT COUNT(*) FROM hero")
+    @Query("SELECT COUNT(*) FROM test")
     abstract fun count(): Long
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

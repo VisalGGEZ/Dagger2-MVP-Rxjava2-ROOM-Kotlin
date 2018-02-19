@@ -32,8 +32,8 @@ class MainActivityModule {
     }
 
     @Provides
-    fun provideMainRepository(networkUtils: NetworkUtils, apiService: ApiService) : MainActivityRepo{
-        return MainActivityRepoImpl(networkUtils = networkUtils, apiService = apiService)
+    fun provideMainRepository(networkUtils: NetworkUtils, apiService: ApiService, testDao: TestDao) : MainActivityRepo{
+        return MainActivityRepoImpl(networkUtils = networkUtils, apiService = apiService, testDao = testDao)
     }
 
     @Provides
