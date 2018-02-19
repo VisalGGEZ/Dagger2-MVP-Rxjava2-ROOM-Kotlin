@@ -1,6 +1,6 @@
 package com.visal_suos.rxjava2_dagger2_mvp_room.data.api
 
-import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.model.DataTestModel
+import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.interactor.models.DataTestModel
 import io.reactivex.Maybe
 import io.reactivex.Single
 import retrofit2.http.GET

@@ -1,36 +1,31 @@
 package com.visal_suos.rxjava2_dagger2_mvp_room.ui.activity
 
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.visal_suos.rxjava2_dagger2_mvp_room.R
-import com.visal_suos.rxjava2_dagger2_mvp_room.di.component.activity.DaggerMainActivityComponent
-import com.visal_suos.rxjava2_dagger2_mvp_room.di.module.activity.MainActivityModule
-import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.model.DataTestModel
+import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.interactor.models.DataTestModel
 import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.presenter.implement.MainActivityPresenter
 import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.view.MainView
 import com.visal_suos.rxjava2_dagger2_mvp_room.ui.fragment.SimpleFragment
+import dagger.android.AndroidInjection
 import io.github.mgarciaguerrero.safefragments.extensions.addFragmentSafelfy
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : BaseActivity(), MainView {
+class MainActivity : AppCompatActivity(), MainView {
 
     @Inject
     lateinit var mainPresenter: MainActivityPresenter
 
-    override fun initDagger() {
-        DaggerMainActivityComponent
-                .builder().appComponent(getComponent())
-                .mainActivityModule(MainActivityModule(this))
-                .build().inject(this)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         mainPresenter.getDataTest()
-        addFragment()
+//        addFragment()
     }
 
     private fun addFragment() {

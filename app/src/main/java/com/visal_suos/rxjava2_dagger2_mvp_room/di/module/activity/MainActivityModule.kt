@@ -9,6 +9,8 @@ import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.view.MainView
 import com.visal_suos.rxjava2_dagger2_mvp_room.ui.activity.MainActivity
 
 import com.visal_suos.rxjava2_dagger2_mvp_room.di.scope.ActivityScope
+import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.interactor.repositories.MainActivityRepo
+import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.interactor.repositories.implements.MainActivityRepoImpl
 import com.visal_suos.rxjava2_dagger2_mvp_room.utilities.NetworkUtils
 import dagger.Module
 import dagger.Provides
@@ -17,21 +19,23 @@ import dagger.Provides
  * Created by v.suos on 2/8/2018.
  */
 @Module
-class MainActivityModule(val activity: MainActivity) {
+class MainActivityModule {
 
-    @ActivityScope
     @Provides
-    fun provideMainView(): MainView {
+    fun provideMainView(activity: MainActivity): MainView {
         return activity
     }
 
-    @ActivityScope
     @Provides
-    fun provideMainPresenter(mainView: MainView, networkUtils: NetworkUtils, apiService: ApiService): MainActivityPresenter {
-        return MainActivityPresenterImpl(mainView, networkUtils, apiService)
+    fun provideMainPresenter(mainView: MainView, mainActivityRepo: MainActivityRepo): MainActivityPresenter {
+        return MainActivityPresenterImpl(mainView, mainActivityRepo)
     }
 
-    @ActivityScope
+    @Provides
+    fun provideMainRepository(networkUtils: NetworkUtils, apiService: ApiService) : MainActivityRepo{
+        return MainActivityRepoImpl(networkUtils = networkUtils, apiService = apiService)
+    }
+
     @Provides
     fun provideTestDao(myDatabase: MyDatabase) : TestDao{
         return myDatabase.testDao()

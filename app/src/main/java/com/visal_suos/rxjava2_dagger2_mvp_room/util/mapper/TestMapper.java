@@ -1,7 +1,7 @@
 package com.visal_suos.rxjava2_dagger2_mvp_room.util.mapper;
 
 import com.visal_suos.rxjava2_dagger2_mvp_room.data.room.entity.DataTestEntity;
-import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.model.DataTestModel;
+import com.visal_suos.rxjava2_dagger2_mvp_room.mvp.interactor.models.DataTestModel;
 
 import java.util.ArrayList;
 import java.util.List;

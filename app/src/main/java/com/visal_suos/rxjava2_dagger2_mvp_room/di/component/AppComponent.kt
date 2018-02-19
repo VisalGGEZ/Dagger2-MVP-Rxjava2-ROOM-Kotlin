@@ -3,12 +3,13 @@ package com.visal_suos.rxjava2_dagger2_mvp_room.di.component.activity
 import com.visal_suos.core.di.module.NetworkModule
 import com.visal_suos.core.di.module.OkHttpClientModule
 import com.visal_suos.core.di.module.RetrofitModule
-import com.visal_suos.rxjava2_dagger2_mvp_room.data.api.ApiService
+import com.visal_suos.rxjava2_dagger2_mvp_room.application.MainApplication
+import com.visal_suos.rxjava2_dagger2_mvp_room.di.builder.ActivityBuilder
 import com.visal_suos.rxjava2_dagger2_mvp_room.di.module.DBModule
 import com.visal_suos.rxjava2_dagger2_mvp_room.di.module.activity.AppModule
-import com.visal_suos.rxjava2_dagger2_mvp_room.utilities.NetworkUtils
+import dagger.BindsInstance
 import dagger.Component
-import okhttp3.OkHttpClient
+import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
 /**
@@ -16,14 +17,22 @@ import javax.inject.Singleton
  */
 @Singleton
 @Component(modules = arrayOf(
+        ActivityBuilder::class,
+        AndroidInjectionModule::class,
         AppModule::class,
         OkHttpClientModule::class,
         RetrofitModule::class,
         NetworkModule::class,
         DBModule::class))
 interface AppComponent {
+    @Component.Builder
+    interface Builder {
 
-    fun networkUtils() : NetworkUtils
-    fun apiService() : ApiService
+        @BindsInstance
+        fun application(application: MainApplication): Builder
 
+        fun build(): AppComponent
+    }
+
+    fun inject(application: MainApplication)
 }

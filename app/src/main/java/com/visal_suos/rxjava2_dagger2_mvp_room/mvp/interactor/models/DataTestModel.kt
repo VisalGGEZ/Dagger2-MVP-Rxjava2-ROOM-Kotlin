@@ -1,4 +1,4 @@
-package com.visal_suos.rxjava2_dagger2_mvp_room.mvp.model
+package com.visal_suos.rxjava2_dagger2_mvp_room.mvp.interactor.models
 
 import com.google.gson.annotations.SerializedName
 

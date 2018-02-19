@@ -1,32 +1,29 @@
 package com.visal_suos.rxjava2_dagger2_mvp_room.application
 
+import android.app.Activity
 import android.app.Application
-import com.visal_suos.rxjava2_dagger2_mvp_room.di.component.activity.AppComponent
 import com.visal_suos.rxjava2_dagger2_mvp_room.di.component.activity.DaggerAppComponent
-import com.visal_suos.rxjava2_dagger2_mvp_room.di.module.activity.AppModule
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import javax.inject.Inject
 
 
 /**
  * Created by v.suos on 2/12/2018.
  */
-class MainApplication : Application() {
+class MainApplication : Application(), HasActivityInjector {
 
-    private val baseURL = "https://raw.githubusercontent.com/VisalGGEZ/udemy-forum/master/"
+    @Inject
+    lateinit var activityInjector: DispatchingAndroidInjector<Activity>
 
-    companion object {
-        @JvmStatic
-        lateinit var appComponent: AppComponent
-    }
+    override fun activityInjector() = activityInjector
 
     override fun onCreate() {
         super.onCreate()
-        initDagger()
-    }
-
-    fun initDagger() {
-        appComponent = DaggerAppComponent
+        DaggerAppComponent
                 .builder()
-                .appModule(AppModule(this, baseURL))
-                .build()
+                .application(this)
+                .build().inject(this)
     }
 }
